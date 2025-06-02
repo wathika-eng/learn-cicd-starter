@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 jobs:
-style:
+  style:
     name: Style
     runs-on: ubuntu-latest
 
