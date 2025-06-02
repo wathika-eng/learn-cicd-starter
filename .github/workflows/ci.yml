@@ -44,5 +44,11 @@ jobs:
       - name: Run tests
         run: go test ./... -cover
 
-      # - name: Force Failure
-      #   run: (exit 1)
+      - name: Install gosec
+        run: go install github.com/securego/gosec/v2/cmd/gosec@latest
+
+      - name: gosec
+        run: gosec ./...
+
+    # - name: Force Failure
+    #   run: (exit 1)
