@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"log"
 	"net/http"
 )
@@ -31,12 +30,9 @@ func respondWithJSON(w http.ResponseWriter, code int, payload interface{}) {
 		return
 	}
 	w.WriteHeader(code)
-	resp, err := w.Write(dat)
-
-	if err != nil {
-		log.Printf("Error marshalling JSON: %s", err)
+	if _, err := w.Write(dat); err != nil {
+		log.Printf("Error writing response: %s", err)
 		w.WriteHeader(500)
 		return
 	}
-	fmt.Println(resp)
 }
