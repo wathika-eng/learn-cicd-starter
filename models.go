@@ -60,7 +60,7 @@ func databaseNoteToNote(post database.Note) (Note, error) {
 	}, nil
 }
 
-func databasePostsToPosts(notes []database.Note) ([]Note, error) {
+func databaseNotesToNotes(notes []database.Note) ([]Note, error) {
 	result := make([]Note, len(notes))
 	for i, note := range notes {
 		var err error
